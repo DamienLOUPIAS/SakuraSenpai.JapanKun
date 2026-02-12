@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Reservation</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap" rel="stylesheet">
+        <link href="css/bootstrap-5.3.8-dist/css/bootstrap.css" rel="stylesheet">
+        <link href="css/fontawesome-free-7.1.0-web/css/all.css" rel="stylesheet">
+        <script src="js/scriptFormulaire.js"></script>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="fontNoir texteBlanc">
+            <div class="row">
+                <div class="col-12">
+                    <nav>
+                        <!-- <ul>
+                            <li>Contactez-nous : </li>
+                            <li><i class="fa-solid fa-phone"></i> 05 65 67 01 13 </li>
+                        </ul> -->
+                        <ul class="ulDeroulant">
+                            <div class="col-1">
+                                <img class="tailleLogo" src="images/PetitLogoBlanc.png" alt="Logo">
+                            </div>
+                            <li class="liDeroulant"><a class="aMenu" href="index.html">Accueil</a></li>
+                            <li class="liDeroulant">
+                                <a class="aMenu" href="#">Services ▾</a>
+                                <ul class="dropdown">
+                                    <li class="liDeroulant"><a class="aMenu" href="reservation.html">Inscription pour un stand</a></li>
+                                    <li class="liDeroulant"><a class="aMenu" href="planing.html">Voir le planing</a></li>
+                                </ul>
+                            </li class="liDeroulant">
+                        </ul>
+                </nav>
+                </div>
+            </div>
+
+        </header>
+        <main>
+            <canvas id="canvas"></canvas>
+            <container>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                        <form>
+                            <div class="row">
+                                <div class="col-12 caseExterne">
+                                    <h1>Demandes de base</h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 caseExterne">
+                                    <div id="idEntreprise" class="h-100 caseInterne texteNoir">
+                                        Quel est votre nom de scène ?
+                                        <input id="inputEntreprise" type="text" class="form-control">
+                                    </div>
+                                </div>    
+                            </div>
+                            <div class="row">
+                                <div class="col-12 caseExterne">
+                                    <div id="idNom" class="h-100 caseInterne texteNoir">
+                                        Quel est votre nom ?
+                                        <input id="inputNom" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 caseExterne">
+                                    <div id="idPrenom" class="h-100 caseInterne texteNoir">
+                                        Quel est votre prénom ?
+                                        <input id="inputPrenom" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 caseExterne">
+                                    <div id="idEmail" class="h-100 caseInterne texteNoir">
+                                        Quel est votre email afin de pouvoir vous contacter ?
+                                        <input id="inputEmail" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-6 caseExterne">
+                                    <div id="idNumero" class="h-100 caseInterne texteNoir">
+                                        Quel est votre numéro de téléphone afin de pouvoir vous contacter ?
+                                        <input id="inputNumero" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <fieldset>
+                                <p id="consigneCB" class="texteNoir">Choisissez le ou les jour(s) où vous souhaitez accéder à votre stand : <p>
+                                <div>
+                                    <input type="checkbox" id="CBsamedi">
+                                    <label for="CBsamedi">Samedi</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="CBdimanche">
+                                    <label for="CBdimanche">Dimanche</label>
+                                </div>
+                            </fieldset>
+                            <br>
+                            <div class="text-centre">
+                                <button type="submit" id="btnEnvoyer" class="btn btn-dark">Envoyer</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </container>
+            <br>
+            
+        </main>
+        <footer class="fontNoir texteBlanc">
+            <div class="container text-center footer-info">
+                <p>SAÉ S2.06 - Organisation d'un travail d'équipe | BUT Informatique</p>
+                <p>GUÉNÉGOU Éva | LOUPIAS Damien | TAILLADE Sarah</p>
+                <div class="col-12">
+                    <a class="aMenu" href="#">Mentions légales</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

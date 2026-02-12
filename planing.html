@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Planing</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap" rel="stylesheet">
+        <link href="css/bootstrap-5.3.8-dist/css/bootstrap.css" rel="stylesheet">
+        <link href="css/fontawesome-free-7.1.0-web/css/all.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="js/scriptPluie.js"></script>
+    </head>
+    <body>
+        <header class="fontNoir texteBlanc">
+            <div class="row">
+                <div class="col-12">
+                    <nav>
+                        <!-- <ul>
+                            <li>Contactez-nous : </li>
+                            <li><i class="fa-solid fa-phone"></i> 05 65 67 01 13 </li>
+                        </ul> -->
+                        <ul class="ulDeroulant">
+                            <div class="col-1">
+                                <img class="tailleLogo" src="images/PetitLogoBlanc.png" alt="Logo">
+                            </div>
+                            <li class="liDeroulant"><a class="aMenu" href="index.html">Accueil</a></li>
+                            <li class="liDeroulant">
+                                <a class="aMenu" href="#">Services ▾</a>
+                                <ul class="dropdown">
+                                    <li class="liDeroulant"><a class="aMenu" href="reservation.html">Inscription pour un stand</a></li>
+                                    <li class="liDeroulant"><a class="aMenu" href="planing.html">Voir le planing</a></li>
+                                </ul>
+                            </li class="liDeroulant">
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </header>
+        <main>
+            <canvas id="canvas"></canvas>
+            <br> <div class="text-center"> Planning : </div><br>
+            <div class="row">
+                <div class="col-md-2 none block-md"></div>
+                <div class="col-md-8"> <!--Here to change-->
+
+                    <table class="table table-bordered h-100">
+                        <thead>
+                            <tr>
+                                <th class="tailleTab10">Horaires</th>
+                                <th class="tailleTab45">Samedi</th>
+                                <th class="tailleTab45">Dimanche</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10h</td>
+                                <td class="caseTableau" rowspan="5" >
+                                    <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+                                        
+                                    </div>
+                                </td>
+                                <td class="caseTableau" >
+                                    <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+                                        Conférence des bénévoles
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>11h</td>
+                                <td class="caseTableau" rowspan="2">
+                                    <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+                                        Blind test manga / animé
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>12h</td>
+                            </tr>
+                            <tr>
+                                <td>13h</td>
+                                <td class="caseTableau">
+                                    <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+                                        Dédicaces de cosplayer
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>14h</td>
+                                <td class="caseTableau">
+                                    <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+                                        Tombola avec gain d'un voyage
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15h</td>
+                                <td class="caseTableau">
+                                    <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+                                        Quizz Pop Culture
+                                    </div>
+                                </td> 
+                                <td class="caseTableau" rowspan="2">
+                                    <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+                                        Festival de danse japonaise
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>16h</td>
+                                <td class="caseTableau">
+                                    <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+                                        Dédicaces de cosplayer
+                                    </div>
+                                </td>
+                            
+                            </tr>
+                            <tr>
+                                <td>17h</td>
+                                <td class="caseTableau" rowspan="2">
+                                    <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+                                        Orchestre de musiques traditionnelles
+                                    </div>
+                                </td>
+                                <td class="caseTableau" rowspan="6">
+                                    <div class="caseTableau h-100 w-100 d-flex align-items-center justify-content-center">
+                                    
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>18h</td>
+                            </tr>
+                            <tr>
+                                <td>19h</td>
+                                <td class="caseTableau">
+                                    <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+                                        Défilé de cosplay 
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>20h</td>
+                                <td class="caseTableau" rowspan="2">
+                                    <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+                                        Bal de cosplay
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>21h</td>
+                            </tr>
+                            <tr>
+                                <td>22h</td>
+                                <td class="caseTableau">
+                                    <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+                                        Vote du roi et de la reine du bal avec lot.
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <br>
+        </main>
+        <footer class="fontNoir texteBlanc">
+            <div class="container text-center footer-info">
+                <p>SAÉ S2.06 - Organisation d'un travail d'équipe | BUT Informatique</p>
+                <p>GUÉNÉGOU Éva | LOUPIAS Damien | TAILLADE Sarah</p>
+                <div class="col-12">
+                    <a class="aMenu" href="#">Mentions légales</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
