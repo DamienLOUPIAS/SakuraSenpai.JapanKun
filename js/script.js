@@ -1,80 +1,99 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
 
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
+	// Pour l'animation :
 
-  window.addEventListener("resize", resizeCanvas);
-  resizeCanvas();
+	const canvas = document.getElementById("canvas");
+	const ctx = canvas.getContext("2d", { alpha: true });
 
-  document.addEventListener("click", (e) => {
-    const rect = canvas.getBoundingClientRect();
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
+	// Permet de réajuster la taille du canva lorsque l'utilisateur change sa taille.
 
-    const x = (e.clientX - rect.left) * scaleX;
-    const y = (e.clientY - rect.top) * scaleY;
+	function resizeCanvas() {
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+	}
+	window.addEventListener("resize", resizeCanvas);
+	resizeCanvas();
 
+	
+	class Leaf {
+		constructor() {
+			this.reset();
+		}
 
-	function longueur(v) {
-		return Math.hypot(v.x, v.y);
+		reset() {
+			this.x = Math.random() * canvas.width;
+			this.Vx = 0;
+			this.y = -500 * Math.random();
+			this.Vy = 0;
+			this.size = 10 + Math.random() * 10;
+			this.angle = Math.random() * Math.PI * 2;
+			this.t = Math.random();
+			this.vDescente = 0.05 + Math.random() * 0.1;
+			this.largeur = 10.0 * Math.random() + 3;
+			this.depHorizontal = 0.0;
+			this.alpha = -1.0;
+		}
+
+		update() {
+			this.Vy = this.vDescente * this.t + this.alpha * Math.cos(2 * this.t);
+			this.Vx = 0.5 * this.largeur * Math.sin(this.t) + this.depHorizontal * 1 * this.t;
+			this.y += this.Vy;
+			this.x += this.Vx;
+			this.xPrime = (this.depHorizontal + this.largeur * Math.cos(this.t))
+			this.angle = 0.9 * this.angle + 0.1 * ((this.vDescente - 2 * this.alpha * Math.sin(2 * this.t)) / this.xPrime );
+			// this.angle = (this.vDescente - 2 * this.alpha * Math.sin(2 * this.t)) / this.xPrime;
+			// this.angle = (Math.PI * Math.cos(this.x / Math.sqrt(this.x * this.x + this.y * this.y))) / 180;
+			// if (this.Vx < -0.025 &&  0.025 < this.Vx) {
+			// 	this.angle = Math.tan(this.Vy/this.Vx);
+			// }
+			this.t += 0.04;
+		}
+
+		draw() {
+			ctx.save();
+			ctx.translate(this.x, this.y);
+			ctx.rotate(this.angle + Math.PI / 2);
+
+			ctx.fillStyle = "#e980a1";
+			ctx.beginPath();
+			ctx.ellipse(0, 0, this.size * 0.6, this.size, 0, 0, Math.PI * 2);
+			console.log(this.xPrime);
+			ctx.fill();
+
+			ctx.restore();
+		}
 	}
 
-	function angle(v) {
-		return Math.atan2(v.y, v.x);
+	document.addEventListener("click", (e) => {
+		const rect = canvas.getBoundingClientRect();
+		const scaleX = canvas.width / rect.width;
+		const scaleY = canvas.height / rect.height;
+
+		const x = (e.clientX - rect.left) * scaleX;
+		const y = (e.clientY - rect.top) * scaleY;
+
+		leaves.push(new Leaf());
+  	});
+
+	const leaves = [];
+	for (let i = 0; i < 30; i++) {
+		leaves.push(new Leaf());
 	}
 
-	const axe = { x: 100, y: 30 };
+	function animate() {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+		leaves.forEach(leaf => {
+			leaf.update();
+			leaf.draw();
+		});
 
 
-	ctx.fillStyle = "#e980a1";
+		requestAnimationFrame(animate); // performance.now
+	}
 
-	ctx.beginPath();
-	ctx.ellipse(
-	200,
-	150,
-	longueur(axe),
-	40,                  // autre rayon
-	angle(axe),          // orientation issue du vecteur
-	0,
-	2 * Math.PI
-	);
-	ctx.stroke();
-  });
+	animate();
 
-	// Pour dessein libre
-	// function draw() {
-	// 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	// 	ctx.beginPath();
-	// 	ctx.arc(x, 100, 30, 0, Math.PI * 2);
-	// 	ctx.fillStyle = "red";
-	// 	ctx.fill();
-
-	// 	x += 2;
-	// 	requestAnimationFrame(draw);
-	// }
-
-	// let x = 0;
-	// draw();
-
-	// let drawing = false;
-
-	// canvas.addEventListener("mousedown", () => drawing = true);
-	// canvas.addEventListener("mouseup", () => drawing = false);
-	// canvas.addEventListener("mousemove", (e) => {
-	// 	if (!drawing) return;
-
-	// 	ctx.lineWidth = 5;
-	// 	ctx.lineCap = "round";
-	// 	ctx.strokeStyle = "black";
-
-	// 	ctx.lineTo(e.clientX, e.clientY);
-	// 	ctx.stroke();
-	// 	ctx.beginPath();
-	// 	ctx.moveTo(e.clientX, e.clientY);
-	// });
 });
+
