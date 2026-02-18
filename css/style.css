@@ -11,7 +11,7 @@
 }
 
 .texteNoir {
-    color:black;
+    color:black !important;
 }
 
 
@@ -41,7 +41,8 @@
     color: white;
 }
 
-.aMenu:hover {
+.aMenu:hover, .aMenu:focus {
+    outline: 2px solid white;
     background-color: #d10000;
 }
 
@@ -60,7 +61,7 @@
 }
 
 /* Affichage au survol */
-.liDeroulant:hover .dropdown {
+.liDeroulant:hover, .liDeroulant:focus-within .dropdown {
     display: block;
 }
 
@@ -133,6 +134,9 @@ table {
 
 .tailleLogo {
     width: 50%;
+}
+.tailleLogo2 {
+    width: 80%;
 }
 
 /* Classe pour gérer la canvas et les animations */
